@@ -21,10 +21,25 @@ function Header() {
   );
 }
 
+function CoreConcepts(props){
+  return (
+    <li>{props.concept}</li>
+  )
+}
+
 function MainContent() {
   return (
     <main>
-      <h2>Time to get started!</h2>
+      <section id="core-concepts">
+        <h2>Core Concepts</h2>
+        <ul>
+          <CoreConcepts concept="Components" />
+          <CoreConcepts concept="JSX" />
+          <CoreConcepts concept="Props" />
+          <CoreConcepts concept="State" />
+          <CoreConcepts concept="Lifecycle" />
+        </ul>
+      </section>
     </main>
   );
 }
