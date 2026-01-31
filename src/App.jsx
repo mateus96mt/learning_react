@@ -31,7 +31,7 @@ function Header() {
 //   );
 // }
 
-function CoreConcepts({image, title, description}) {
+function CoreConcepts({ image, title = "default title", description }) {
   return (
     <li>
       <img src={image} alt={title} />
@@ -60,6 +60,7 @@ function MainContent() {
           <CoreConcepts {...CORE_CONCEPTS[1]} />
           <CoreConcepts {...CORE_CONCEPTS[2]} />
           <CoreConcepts {...CORE_CONCEPTS[3]} />
+          <CoreConcepts {...CORE_CONCEPTS[4]} />
         </ul>
       </section>
     </main>
