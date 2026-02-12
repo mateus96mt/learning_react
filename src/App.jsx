@@ -1,9 +1,20 @@
+import { useState } from "react";
+
 import { CORE_CONCEPTS } from "./data";
 import Header from "./components/Header/Header";
 import CoreConcepts from "./components/CoreConcepts/CoreConcepts";
 import TabButton from "./components/TabButton";
 
 function MainContent() {
+  const [selected, setSelected] = useState("click");
+  let tabcontent = "click";
+
+  let onclick = (value) => {
+    console.log("Hello world");
+    tabcontent = value
+    console.log("tabcontent: " + tabcontent);
+    setSelected(value);
+  }
   return (
     <main>
       <section id="core-concepts">
@@ -26,11 +37,13 @@ function MainContent() {
         </ul>
       </section>
       <section id="examples">
-      <menu>
-        <TabButton>Example 1</TabButton>
-        <TabButton>Example 2</TabButton>
-        <TabButton>Example 3</TabButton>
-      </menu>
+        <menu>
+          <TabButton onClick={() => onclick('Example 1')}>Example 1</TabButton>
+          <TabButton onClick={() => onclick('Example 2')}>Example 2</TabButton>
+          <TabButton onClick={() => onclick('Example 3')}>Example 3</TabButton>
+
+        </menu>
+        {selected}
       </section>
     </main>
   );
