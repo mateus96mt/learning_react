@@ -1,45 +1,7 @@
-import reactImg from "./assets/react-core-concepts.png";
 import { CORE_CONCEPTS } from "./data";
-const description = ["desc1", "desc2", "desc3"];
-
-function getRandomDescription() {
-  const randomIndex = Math.floor(Math.random() * description.length);
-  return description[randomIndex];
-}
-
-function Header() {
-  const desc = getRandomDescription();
-  return (
-    <header>
-      <img src={reactImg} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        {desc} Fundamental React concepts you will need for almost any app you are
-        going to build!
-      </p>
-    </header>
-  );
-}
-
-// function CoreConcepts(props) {
-//   return (
-//     <li>
-//       <img src={props.image} alt={props.title} />
-//       <h3>{props.title}</h3>
-//       <p>{props.description}</p>
-//     </li>
-//   );
-// }
-
-function CoreConcepts({ image, title = "default title", description }) {
-  return (
-    <li>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
-  );
-}
+import Header from "./components/Header/Header";
+import CoreConcepts from "./components/CoreConcepts/CoreConcepts";
+import TabButton from "./components/TabButton";
 
 function MainContent() {
   return (
@@ -62,6 +24,13 @@ function MainContent() {
           <CoreConcepts {...CORE_CONCEPTS[3]} />
           <CoreConcepts {...CORE_CONCEPTS[4]} />
         </ul>
+      </section>
+      <section id="examples">
+      <menu>
+        <TabButton>Example 1</TabButton>
+        <TabButton>Example 2</TabButton>
+        <TabButton>Example 3</TabButton>
+      </menu>
       </section>
     </main>
   );
