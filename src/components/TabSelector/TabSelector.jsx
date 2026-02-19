@@ -6,7 +6,7 @@ import TabButton from "../TabButton";
 import "./TabSelector.css";
 import Section from "../Section";
 
-export default function TabSelector() {
+export default function TabSelector({ButtonsContainer}) {
     const [selected, setSelected] = useState();
     let tabcontent;
 
@@ -24,14 +24,18 @@ export default function TabSelector() {
         setSelected(value);
     }
 
+    //dynamic element
+    // const ButtonsContainer = buttonsContainer ? buttonsContainer : "menu";
+    //must be uppercase to be used as a component
+
     return (
         <main>
             <Section id="examples">
-                <menu>
+                <ButtonsContainer>
                     {Object.keys(EXAMPLES).map((key) => (
                         <TabButton selected={selected === key ? "active" : ""} onClick={() => onclick(key)}>{key}</TabButton>
                     ))}
-                </menu>
+                </ButtonsContainer>
                 {tabcontent}
             </Section >
         </main >

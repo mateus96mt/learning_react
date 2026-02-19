@@ -19,7 +19,7 @@ function App() {
       <Header />
       <Concepts>
       </Concepts>
-      <TabSelector />
+      <TabSelector ButtonsContainer="menu"/>
     </>
   );
 }
