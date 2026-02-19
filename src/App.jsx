@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 
 import { CORE_CONCEPTS } from "./data";
 import { EXAMPLES } from "./data";
@@ -70,12 +70,23 @@ function MainContent() {
   );
 }
 
+//use Fragment to avoid unnecessary divs in the DOM
+// function App() {
+//   return (
+//     <Fragment>
+//       <Header />
+//       <MainContent />
+//     </Fragment>
+//   );
+// }
+
+//can also use empty tags instead of Fragment
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <MainContent />
-    </div>
+    </>
   );
 }
 
