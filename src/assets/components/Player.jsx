@@ -1,11 +1,11 @@
 import { useState } from "react"
 
-export default function Player({ name = "Player", symbol = "X", usePrompt = false }) {
+export default function Player({ playerName = "Player", playerSymbol = "X", usePrompt = false, setPlayerName, setPlayerSymbol }) {
 
-    let [playerName, setPlayerName] = useState(name)
-    let [temporaryPlayerName, setTemporaryPlayerName] = useState(name)
+    // let [playerName, setPlayerName] = useState(name)
+    let [temporaryPlayerName, setTemporaryPlayerName] = useState(playerName)
 
-    let [playerSymbol, setPlayerSymbol] = useState(symbol)
+    // let [playerSymbol, setPlayerSymbol] = useState(symbol)
 
     let [textButton, setTextButton] = useState("Edit")
     let [isEditing, setIsEditing] = useState(false)
