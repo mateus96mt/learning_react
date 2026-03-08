@@ -1,18 +1,29 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
-const inicitalGameBoard = [
+const initialGameBoard = [
     [null, null, null],
     [null, null, null],
     [null, null, null]
 ];
 
-export default function GameBoard({ turn, handleTurnChange, playerName, gamelog, setGamelog}) {
+export default function GameBoard({ turn, handleTurnChange, playerName, gamelog, setGamelog, resetBoard }) {
 
-    const [gameBoard, setGameBoard] = useState(inicitalGameBoard);
+    const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
     const [gameFineshed, setGameFineshed] = useState(false);
 
     const [gameWinner, setGameWinner] = useState();
+
+    useEffect(() => {
+        if (resetBoard) {
+            let emptyBoard = initialGameBoard.map(row => row.map(() => null));
+            setGameBoard(emptyBoard);
+            setGameFineshed(false);
+            setGameWinner(undefined);
+            console.log("Game reset!", gameBoard);
+        }
+    }, [resetBoard]);
 
     let onclick = (rowIndex, cellIndex) => {
         if (!gameBoard[rowIndex][cellIndex]) {

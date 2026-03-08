@@ -9,6 +9,8 @@ function App() {
 
   const [turn, setTurn] = useState('X');
 
+  const [resetBoard, setResetBoard] = useState(false);
+
   let [playerName1, setPlayerName1] = useState("Player 1")
   let [playerSymbol1, setPlayerSymbol1] = useState("X")
 
@@ -22,6 +24,15 @@ function App() {
     setTurn(() => turn === playerSymbol1 ? playerSymbol2 : playerSymbol1);
   }
 
+  function handleResetGame() {
+    setGamelog([]);
+    setTurn(playerSymbol1);
+    setResetBoard(true);
+    setTimeout(() => {
+      setResetBoard(false);
+    }, 100);
+  }
+
   useEffect(() => {
     setTurn(playerSymbol1);
   }, [playerSymbol1]);
@@ -33,9 +44,11 @@ function App() {
           <Player
             playerName={playerName1}
             playerSymbol={playerSymbol1}
-            usePrompt={true} setPlayerName={setPlayerName1}
+            usePrompt={true}
+            setPlayerName={setPlayerName1}
             setPlayerSymbol={setPlayerSymbol1}
             isActive={turn === playerSymbol1}
+            onReset={handleResetGame}
           />
           <Player
             playerName={playerName2}
@@ -44,6 +57,7 @@ function App() {
             setPlayerName={setPlayerName2}
             setPlayerSymbol={setPlayerSymbol2}
             isActive={turn === playerSymbol2}
+            onReset={handleResetGame}
           />
         </ol>
         <GameBoard
@@ -52,6 +66,7 @@ function App() {
           playerName={playerName}
           gamelog={gamelog}
           setGamelog={setGamelog}
+          resetBoard={resetBoard}
         />
       </div>
       <Log gamelog={gamelog} />
