@@ -67,6 +67,7 @@ function App() {
           gamelog={gamelog}
           setGamelog={setGamelog}
           resetBoard={resetBoard}
+          handleResetGame={handleResetGame}
         />
       </div>
       <Log gamelog={gamelog} />

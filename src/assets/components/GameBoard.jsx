@@ -7,7 +7,7 @@ const initialGameBoard = [
     [null, null, null]
 ];
 
-export default function GameBoard({ turn, handleTurnChange, playerName, gamelog, setGamelog, resetBoard }) {
+export default function GameBoard({ turn, handleTurnChange, playerName, gamelog, setGamelog, resetBoard, handleResetGame }) {
 
     const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
@@ -123,7 +123,7 @@ export default function GameBoard({ turn, handleTurnChange, playerName, gamelog,
                     </li>
                 ))}
             </ol>
-
+            <button onClick={handleResetGame}>Rematch</button>
         </>
     )
 }
