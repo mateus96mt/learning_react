@@ -16,8 +16,6 @@ function App() {
   let [playerSymbol2, setPlayerSymbol2] = useState("O")
 
   let playerName = turn === playerSymbol1 ? playerName1 : playerName2;
-  let [lastmove, setLastMove] = useState();
-
   let [gamelog, setGamelog] = useState([]);
 
   let handleTurnChange = (turn) => {
@@ -31,12 +29,13 @@ function App() {
   return (
     <main>
       <div id="game-container">
-        <ol id="players">
+        <ol id="players" className="highlight-player">
           <Player
             playerName={playerName1}
             playerSymbol={playerSymbol1}
             usePrompt={true} setPlayerName={setPlayerName1}
             setPlayerSymbol={setPlayerSymbol1}
+            isActive={turn === playerSymbol1}
           />
           <Player
             playerName={playerName2}
@@ -44,6 +43,7 @@ function App() {
             usePrompt={true}
             setPlayerName={setPlayerName2}
             setPlayerSymbol={setPlayerSymbol2}
+            isActive={turn === playerSymbol2}
           />
         </ol>
         <GameBoard
@@ -52,12 +52,9 @@ function App() {
           playerName={playerName}
           gamelog={gamelog}
           setGamelog={setGamelog}
-          setLastMove={setLastMove}
         />
       </div>
-      <Log gamelog={gamelog}
-      lastmove={lastmove}
-      />
+      <Log gamelog={gamelog} />
     </main>
   )
 }

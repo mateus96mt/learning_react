@@ -6,7 +6,7 @@ const inicitalGameBoard = [
     [null, null, null]
 ];
 
-export default function GameBoard({ turn, handleTurnChange, playerName, gamelog, setGamelog, setLastMove }) {
+export default function GameBoard({ turn, handleTurnChange, playerName, gamelog, setGamelog}) {
 
     const [gameBoard, setGameBoard] = useState(inicitalGameBoard);
 
@@ -36,7 +36,6 @@ export default function GameBoard({ turn, handleTurnChange, playerName, gamelog,
                 turnMark: turn,
                 lastmove
             }])
-            setLastMove({ rowIndex, cellIndex });
         }
     }
 

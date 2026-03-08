@@ -1,6 +1,6 @@
 
 
-export default function Log({ gamelog, lastmove }) {
+export default function Log({ gamelog }) {
     return (
         <div className="log">
             <h2 style={{ color: "black" }}>Game Log</h2>

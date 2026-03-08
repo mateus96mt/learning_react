@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Player({ playerName = "Player", playerSymbol = "X", usePrompt = false, setPlayerName, setPlayerSymbol }) {
+export default function Player({ playerName = "Player", playerSymbol = "X", usePrompt = false, setPlayerName, setPlayerSymbol, isActive}) {
 
     // let [playerName, setPlayerName] = useState(name)
     let [temporaryPlayerName, setTemporaryPlayerName] = useState(playerName)
@@ -46,7 +46,7 @@ export default function Player({ playerName = "Player", playerSymbol = "X", useP
     }
 
     return (
-        <li>
+        <li className={isActive ? "active" : ""}>
             <span className="player">
                 <span className="player">
                     {playerNameElement}
